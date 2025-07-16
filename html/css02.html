@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập cs02</title>
+    <style>
+        th{
+            color: white;
+            background-color: blue;
+            font-weight: bold;
+        }
+
+        th,td{
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+
+        h3{
+            text-align: center;
+        }
+
+        .form-container {
+            width: 50%;
+            height: 500px;
+            background: #fff;
+            margin: 40px auto;
+            padding: 20px 30px;
+            box-shadow: 0 4px 12px;
+            border-radius: 8px;
+        }
+
+        
+        .form-container textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container select,textarea {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196f3;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; font-weight: 900;">CÁC SỰ KIỆN TRONG THÁNG 12/2025</h1>
+
+    <table style="width: 80%; border-collapse: collapse; box-shadow: 0 4px 1px rgba(0,0,0,0.1); margin:20px auto;">
+        <thead>
+            <tr>
+                <th>SỰ KIỆN</th>
+                <th>ĐỊA ĐIỂM</th>
+                <th>THỜI GIAN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hội thi tay nghề điêu khắc</td>
+                <td>Tây Ninh</td>
+                <td>Từ ngày 01-04 tháng 12/2025</td>
+            </tr>
+            <tr>
+                <td>Triển lãm tranh sơn mài</td>
+                <td>Bình Dương</td>
+                <td>Từ ngày 10-15 tháng 12/2025</td>
+            </tr>
+            <tr>
+                <td>Hội thi bánh dân gian Nam Bộ</td>
+                <td>Vĩnh Long</td>
+                <td>Từ ngày 15-20 tháng 12/2025</td>
+            </tr>
+            <tr>
+                <td>Hội thi văn nghệ quần chúng</td>
+                <td>Thành Phố Hồ Chí Minh</td>
+                <td>Từ ngày 25-30 tháng 12/2025</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="form-container">
+        <h3>Đăng ký Tham gia Sự kiện</h3>
+        <form>
+            <label>Họ và Tên</label>
+            <input type="text" name="fullname" placeholder="Nhập họ và tên">
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Nhập email">
+
+            <label>Số điện thoại</label>
+            <input type="text" name="phone" placeholder="Nhập số điện thoại">
+
+            <label>Chọn sự kiện</label>
+            <select name="event">
+                <option>-- Chọn sự kiện --</option>
+                <option>Hội thi tay nghề điêu khắc</option>
+                <option>Triển lãm tranh sơn mài</option>
+                <option>Hội thi bánh dân gian Nam Bộ</option>
+                <option>Hội thi văn nghệ quần chúng</option>
+            </select>
+
+            <label>Ghi chú thêm</label>
+            <textarea name="note"></textarea>
+
+            <button type="submit">Đăng ký ngay</button>
+        </form>
+    </div>
+</body>
+</html>
