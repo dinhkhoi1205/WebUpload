@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 2</title>
+    <style>
+        body {
+            font-family: arial, verdana, sans-serif;
+            font-size: 16px;
+        }
+        h1 {
+            text-shadow: 10px 10px 3px #999999;
+        }
+        p:nth-of-type(2) {
+            text-transform: capitalize;
+            text-align: center;
+        }
+        p:nth-of-type(3) {
+            text-transform: uppercase;
+            text-align: right;
+        }
+        p:nth-last-of-type(2) {
+            text-transform: lowercase;
+            text-align: left;
+        }
+        p:last-child:first-letter {
+            font-size: 42px;
+        }
+        p:last-child:first-line {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dòng này được định dạng có bóng (shadow)</h1>
+    <p>Văn bản bình thường</p>
+    <p>Hoa các ký tự đầu từ</p>
+    <p>HOA TẤT CẢ CÁC KÝ TỰ</p>
+    <p>ĐOẠN NÀY SẼ ĐƯỢC CHUYỂN VỀ CHỮ THƯỜNG</p>
+    <p>Đoạn văn bản này có ký tự đầu được định dạng font-size lớn, dòng đầu tiên được in đậm</p>
+</body>
+</html>
