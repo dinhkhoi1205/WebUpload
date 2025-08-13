@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>CHƯƠNG TRÌNH XỬ LÝ CHUỖI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid #000;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 80px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+        }
+        .button-group {
+            margin-top: 10px;
+        }
+        button {
+            margin: 3px;
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+
+        function reverse(){
+             var s = document.getElementById("txtS1").value;
+            arr = s.split(" ");
+            var i, kq = "";
+            for (i = arr.length -1 ; i >= 0; i--)
+                kq+= arr[i].trim() + " ";
+            document.getElementById("txtS1").value = kq.trim();
+        }
+        function reset(){
+            document.getElementById("txtS1").value = strOrigin;
+        }
+
+        function normal(){
+            var s = document.getElementById("txtS1").value;
+            arr = s.split(" ");
+            var i, kq = "", tmp;
+            for (i = 0; i < arr.length; i++){
+                tmp = arr[i].trim().toLowerCase();
+                if(tmp!= ""){
+                    tmp = tmp.substr(0,1).toUpperCase() + tmp.substr(1);
+                    kq += tmp + " ";
+                }
+            }
+
+            document.getElementById("txtS1").value = kq.trim();
+        }
+
+        function insert() {
+            var s1 = document.getElementById("txtS1").value;
+            var s2 = document.getElementById("txtS2").value;
+            var s3 = document.getElementById("txtS3").value;
+            if(pos ==""){
+                alert("The position has not been filled")
+                return false;
+            }
+            pos = Number(pos);
+            if(isNaN(pos) || pos < 0 || pos > s1.length){
+                alert("The position is not valid ")
+                return false;
+            }
+
+            console.log(pos);
+            if(s2 == ""){
+                alert("The S2 has not been filled");
+                return false;
+            }
+
+            var result = insertAt(s1,s2,pos);
+            if (result){
+                s1 = document.getElementById("txtS1").value = result;
+            }
+        }
+
+        function insertAt(main_string, ins_string, pos){
+            return main_string.slice(0, pos) + ins_string + main_string.slice(pos);
+        }
+
+        function replaceAll(){
+            var s1 = document.getElementById("txtS1").value;
+            var s2 = document.getElementById("txtS2").value;
+            var s3 = document.getElementById("txtS3").value;
+            var token = new RegExp(s2,"ig");
+            s1 = s1.replace(token, s3); // Replace s2 to s3 without recconize s
+            document.getElementById("txtS1").value = s1;
+        }
+
+        function deleteAll(){
+            var s1 = document.getElementById("txtS1").value;
+            var s2 = document.getElementById("txtS2").value;
+            var s3 = document.getElementById("txtS3").value;
+            var token = new RegExp(s2,"ig");
+            s1 = s1.replace(token, ''); // Replace s2 with empty array
+            document.getElementById("txtS1").value = s1;
+        }
+    </script>
+</head>
+<body>
+    <h1>CHƯƠNG TRÌNH XỬ LÝ CHUỖI</h1>
+    <div class="container">
+        <div class="form-group">
+            <label>Chuỗi S1:</label>
+            <input id="txtS1" type="text" value="Learning JAVASCRIPT is veRy easy">
+        </div>
+        <div class="form-group">
+            <label>Chuỗi S2:</label>
+            <input id="txtS2" type="text" value="javascript">
+        </div>
+        <div class="form-group">
+            <label>Chuỗi S3:</label>
+            <input id="txtS3" type="text" value="jQuery">
+        </div>
+        <div class="form-group">
+            <label>Vị trí chèn:</label>
+            <input id="txtPos" type="text" value="0">
+        </div>
+        <div class="button-group">
+            <button onClick="normal()">Chuẩn hóa chuỗi</button>
+            <button onClick="reverse()">Đảo chuỗi</button>
+            <button onClick="reset()">Khôi phục</button>
+        </div>
+        <div class="button-group">
+            <button onClick="replaceAll()">Thay thế S2 bằng S3</button>
+            <button onClick="insert()">Chèn S2 vào S1</button>
+            <button onClick="deleteAll()">Xóa S2 trong S1</button>
+        </div>
+    </div>
+
+    <script>
+        strOrigin = document.getElementById("txtS1").value;
+
+    </script>
+</body>
+</html>
