@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Bai tap 06</title>
+    <script>
+        function Tinh() {
+            var a = parseInt(document.forms["myform"]["txtSo1"].value);
+            var b = parseInt(document.forms["myform"]["txtSo2"].value);
+            var op = document.forms["myform"]["op"].value;
+            var kq;
+            switch (op) {
+                case "+": kq = a + b; break;
+                case "-": kq = a - b; break;
+                case "*": kq = a * b; break;
+                case "/":
+                    if (b != 0) {
+                        kq = a / b;
+                        kq = kq.toFixed(2); // lấy 2 số lẻ
+                    } else {
+                        kq = "Không thể thực hiện phép chia cho 0";
+                    }
+                    break;
+            }
+            document.forms["myform"]["kq"].value = kq;
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <form id="myform" class="d-flex flex-column w-50" style="margin: 0px auto;" onSubmit="return Tinh()">
+        <h2>Phep so tinh hoc</h2>
+        <label>So thu 1</label>
+        <input type="text" name="txtSo1" />
+        <label>So thu 2</label>
+        <input type="text" name="txtSo2" />
+        <label>Chon phep tinh</label>
+        <p class="d-flex" style="width: 50%;">
+            <input style="width: 50px;" type="radio" name="op" value="+"> Cong
+            <input style="width: 50px;" type="radio" name="op" value="-"> Tru
+            <input style="width: 50px;" type="radio" name="op" value="*"> Nhan
+            <input style="width: 50px;" type="radio" name="op" value="/" checked> Chia
+        </p>
+
+        <p class="d-flex" style="width: 50%;">
+            <button style="width: 80px; height: 50px;" type="submit" name="btCong">Thuc hien</button>
+            <button style="width: 80px; height: 50px;" type="reset">Huy</button>
+        </p>
+
+        <input style="width: 200px;" type="text" name="kq" readonly />
+    </form>
+</body>
+
+</html>

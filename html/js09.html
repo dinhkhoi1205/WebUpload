@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .skill {
+            background-color: blue;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 2px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill:hover {
+            background-color: lightblue;
+        }
+
+        button {
+            display: block;
+            margin: 1rem auto 0;
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        button:hover {
+            background-color: lightblue;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="text-dark d-flex justify-content-center p-2">
+    <div class="container bg-white shadow" style="width: 700px; padding: 2rem 3rem; overflow-y: auto;">
+        <div class="text-center mb-2 ">
+            <h1 class="text-black">Nguyen Van A</h1>
+            <p class="text-center mb-2 text-black">Email: nguyen.vana@gmail.com | Dien thoai: 123456</p>
+        </div>
+
+        <section class="mb-2">
+            <h2 class="border-bottom pb-3 mb-1">Ky nang</h2>
+            <div class="d-flex gap-3 " style="flex-wrap: wrap;" id="skill-list">
+                <span class="skill">HTMl</span>
+                <span class="skill">CSS</span>
+                <span class="skill">Javascript</span>
+            </div>
+            <button id="btAddSkill">Them ky nang</button>
+        </section>
+
+        <section class="mb-2">
+            <h2 class="border-bottom pb-3 mb-1">Kinh nghiem lam viec</h2>
+            <dl class="pl-0" style="list-style-type: none;" id="experience-list">
+                <dt>Frontend Developer tai Cong ty ABC</dt>
+                <dd>2018 - 2022 - Phat trien giao dien web va ung dung mobile</dd>
+                <dt>Project manager tai Cong ty XYZ</dt>
+                <dd>2022 - 2024 - Quan ly cac du an phan mem</dd>
+            </dl>
+            <fieldset class="mt-10 mb-10">
+                <legend>Them kinh nghiem</legend>
+                <label for="txtExperience">Kinh nghiem: </label> <br>
+                <input type="text" id="txtExperience"> <br>
+                <label for="txtDescription">Mo ta: </label> <br>
+                <input type="text" id="txtDescription" size="80">
+            </fieldset>
+            <button id="btAddExperience">Them kinh nghiem</button>
+        </section>
+
+        <section>
+            <h2 class="border-bottom pb-3 mb-1">Hoc van</h2>
+            <ul class="pl-0" style="list-style-type: none;">
+                <li class="mb-1">
+                    <h3 class="mx-0" style="font-size: 1.1rem; color: #34495e;">Dai hoc Cong nghe XYZ</h3>
+                    <span>2017 - 2021</span>
+                    <p>Nganh cong nghe thong tin</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        // Add skill
+        const btAddSkill = document.getElementById('btAddSkill');
+        const skillContainer = document.getElementById('skill-list');
+        btAddSkill.addEventListener("click", () => {
+            const newSkill = prompt('Nhap ky nang moi:');
+            if (newSkill && newSkill.trim() !== '') {
+                const exists = Array.from(skillContainer.children)
+                    .some(span => span.textContent.toLowerCase() === newSkill.trim().toLowerCase());
+                if (exists) {
+                    alert('Ky nang da ton tai')
+                    return;
+                }
+
+                const skillSpan = document.createElement('span')
+                skillSpan.classList.add('skill');
+                skillSpan.textContent = newSkill.trim();
+                skillContainer.appendChild(skillSpan)
+            }
+        })
+
+        // Delete skill while hold ctr + click
+        skillContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('skill') && e.ctrlKey) {
+                if (confirm(`Ban co chac muon xoa ky nang "${e.target.textContent}"?`)) {
+                    e.target.remove();
+                }
+            }
+        })
+
+        // Add experience
+        const btAddExperience = document.getElementById('btAddExperience');
+        const experienceList = document.getElementById('experience-list');
+        btAddExperience.addEventListener('click', () => {
+            const ex = document.getElementById('txtExperience').value;
+            const des = document.getElementById('txtDescription').value;
+            if (ex != "") {
+                const dtObj = document.createElement('dt')
+                const ddObj = document.createElement('dd')
+                dtObj.textContent = ex.trim()
+                ddObj.textContent = des.trim()
+                experienceList.appendChild(dtObj)
+                experienceList.appendChild(ddObj)
+                document.getElementById('txtExperience').value = ""
+                document.getElementById('txtDescritption').value = ""
+            }
+        })
+    </script>
+</body>
+
+</html>

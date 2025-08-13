@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Bai tap 07</title>
+
+    <script>
+        function Dangky() {
+            var ten = document.forms.reg["txtTen"].value
+            var mk = document.forms.reg["txtPass"].value
+            var ns = document.forms.reg["txtNgaySinh"].value
+            var birthday = new Date(ns)
+            var gt = document.forms.reg["gt"].value
+            var qt = document.forms.reg["qt"].value
+            document.forms.reg["thongtin"].value = "Chao mung" + ten +
+                "\nBan la " + gt + "\nMat khau cua ban co " + mk.length +
+                " ki tu \n" + "ban sinh ngay " + birthday.getDate() + "/" + (birthday.getMonth() + 1) + "/" + birthday.getFullYear() + "\nVan de ban quan tam la: " + qt;
+            return false
+        }
+    </script>
+</head>
+
+<body>
+    <form class="w-50" style="margin: 0px auto;" id="reg" onSubmit="return Dangky()">
+        <h1>DANG KY THANH VIEN</h1>
+        <p>
+            <label>Ten dang nhap</label>
+            <input type="text" name="txtTen" required>
+        </p>
+
+        <p>
+            <label>Mat khau</label>
+            <input type="password" name="txtPass" required>
+        </p>
+
+        <p>
+            <label>Ngay sinh</label>
+            <input type="date" name="txtNgaySinh" required>
+        </p>
+
+        <p>
+            <label>Gioi tinh</label>
+            <input type="radio" name="gt" value="Nam" checked> Nam
+            <input type="radio" name="gt" value="Nu"> Nu
+        </p>
+
+
+        <p>
+            <label>Van de ban quan tam</label>
+            <select name="qt">
+                <option value="Kinh te">Kinh te</option>
+                <option value="The thao">The thao</option>
+                <option value="Van hoa nghe thuat">Van hoa nghe thuat</option>
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="Dang ky">
+            <input type="reset" value="Huy">
+        </p>
+
+        <p>
+            <textarea name="thongtin" rows="6" cols="50"></textarea>
+        </p>
+    </form>
+</body>
+
+</html>
