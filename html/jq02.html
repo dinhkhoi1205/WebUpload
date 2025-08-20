@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#btTotal").click(function () {
+                var t1 = $("#dayFrom").val()
+                var t2 = $("#dayTo").val()
+                d1 = new Date(t1)
+                d2 = new Date(t2)
+                var days = (d2.getTime() - d1.getTime()) / (3600 * 24 * 1000)
+                $("#result").html("<b>" + days + "</b>")
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <h2><b>Caculate days between 2 times</b></h2>
+
+    <div class="container">
+        <div class="dayFrom">
+            <label>From date:</label>
+            <input type="date" id="dayFrom" />
+        </div>
+
+        <div style="margin-top: 10px;">
+            <label>To date:</label>
+            <input type="date" id="dayTo" />
+        </div>
+        <button style="margin-top: 10px;" id="btTotal">Caculate Date</button>
+        <p id="result"></p>
+    </div>
+
+</body>
+
+</html>

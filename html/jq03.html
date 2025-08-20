@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        button {
+            margin: 5px;
+        }
+
+        .newBrg {
+            background-color: red;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function change() {
+            $("#change").click(function () {
+                $("tr:odd").addClass("newBrg");
+            })
+
+            $("#normal").click(function () {
+                $("tr:odd").removeClass("newBrg");
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <table style="width: 70%; border-collapse: collapse ;">
+        <caption style="font-weight: bold;">ITEM PRICE TABLE</caption>
+        <tr>
+            <th>Item</th>
+            <th>Price messurement</th>
+            <th>Price</th>
+        </tr>
+
+        <tr>
+            <td>Sand</td>
+            <td>Block</td>
+            <td>77,000</td>
+        </tr>
+
+        <tr>
+            <td>Rock</td>
+            <td>Block</td>
+            <td>90,000</td>
+        </tr>
+
+        <tr>
+            <td>Ha Tien Concreate type 1</td>
+            <td>Big bag</td>
+            <td>120,000</td>
+        </tr>
+
+        <tr>
+            <td>Ha Tien Concreate type 2</td>
+            <td>Big bag</td>
+            <td>100,000</td>
+        </tr>
+    </table>
+
+    <button id="change">Change background color</button>
+    <button id="normal">Change normal background color</button>
+</body>
+
+</html>

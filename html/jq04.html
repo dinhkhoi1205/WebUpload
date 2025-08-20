@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div div {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            float: left;
+        }
+
+        #result {
+            clear: left;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("div div").click(function () {
+                var color = $(this).css("background-color")
+                var name;
+                switch (color) {
+                    case "rgb(255,0,0)": name = "Red"; break;
+                    case "rgb(0,0,255)": name = "Blue"; break;
+                    case "rgb(128,0,128)": name = "Purple"; break;
+                    case "rgb(0,128,0)": name = "Green"; break;
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <p>Click square block</p>
+    <div>
+        <div style="background-color: red;"></div>
+        <div style="background-color: blue;"></div>
+        <div style="background-color: purple;"></div>
+        <div style="background-color: green;"></div>
+    </div>
+
+    <div id="result"></div>
+</body>
+
+</html>
